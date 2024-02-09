@@ -24,7 +24,6 @@ def category_page_view(request, category_id):
     )
     trends = Article.objects.all().order_by('-views')
 
-
     context = {
         "title": f"Категория: {Category.objects.get(id=category_id)}",
         'articles': articles,
@@ -33,3 +32,24 @@ def category_page_view(request, category_id):
 
     return render(request, "blog/category_page.html", context)
 
+
+def about_us_page_view(request):
+    return render(request, "blog/about_us.html")
+
+
+def our_team_page_view(request):
+    return render(request, "blog/our_team.html")
+
+
+
+def article_detail_page_view(request, article_id):
+    article = Article.objects.get(id=article_id)
+    last_articles = Article.objects.all().order_by('-created_at')[:3]
+
+    context = {
+        "title": f"Статья: {article.title}",
+        "article": article,
+        "last_articles": last_articles
+    }
+
+    return render(request, "blog/article_detail.html", context)
