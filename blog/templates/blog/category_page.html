@@ -15,7 +15,7 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         <a href="{% url 'article_detail' article.id %}">
-                            <img src="..." class="img-fluid rounded-start" alt="...">
+                            <img src="{{ article.photo.url }}" class="img-fluid rounded-start" alt="...">
                         </a>
                     </div>
                     <div class="col-md-8">
@@ -40,7 +40,7 @@
             <a href="{% url 'article_detail' article.id %}">
                 <div class="card mb-3 text-bg-dark">
 
-                    <img src="https://advancedaesthetics.com.au/wp-content/uploads/400x200.png" class="card-img"
+                    <img src="{{ article.photo.url }}" class="card-img"
                          alt="...">
 
                     <div class="card-img-overlay">
